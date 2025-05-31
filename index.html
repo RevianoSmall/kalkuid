@@ -1,19 +1,147 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kalku.ID - Kalkulator Sederhana</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>LoveMath 💔 v5</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
 
-  <!-- Google AdSense Script -->
+    body {
+      background: linear-gradient(135deg, #ffe4e1, #f8cdda);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: black;
+      overflow-x: hidden;
+      padding: 20px;
+    }
+
+    .ads-container {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #999;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .calculator {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #d63384;
+    }
+
+    p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    input,
+    select,
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 10px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      outline: none;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #d63384;
+      box-shadow: 0 0 0 3px rgba(214, 51, 132, 0.2);
+    }
+
+    button {
+      background-color: #d63384;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #b0276d;
+    }
+
+    #result-title {
+      font-size: 24px;
+      color: #d63384;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    #result {
+      font-size: 18px;
+      color: black;
+      font-weight: 500;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #aaa;
+      text-align: center;
+    }
+  </style>
+
+  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
        crossorigin="anonymous"></script>
 </head>
 <body>
+
+  <!-- Iklan AdSense -->
+  <div class="ads-container">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <!-- Calculator -->
   <div class="calculator">
-    <h1>Kalku.ID</h1>
-    <p>Kalkulator Sederhana</p>
+    <h1>LoveMath 💔</h1>
+    <p>Kalkulator Gen Z</p>
 
     <input type="number" id="num1" placeholder="Angka pertama" />
     
@@ -28,20 +156,211 @@
 
     <button onclick="calculate()">Hitung</button>
 
-    <h2>Hasil: <span id="result">0</span></h2>
+    <!-- Hasil Angka -->
+    <h2 id="result-title">Masukkan angka dan klik Hitung</h2>
+
+    <!-- Narasi -->
+    <div id="result"></div>
   </div>
 
-  <!-- Iklan Banner -->
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-       data-ad-slot="1234567890"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  <!-- Copyright -->
+  <footer>
+    &copy; 2025 Gen Z (gendeng). Semua hak cinta tak tersampaikan.
+  </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const stories = {
+      '+': [
+        "%total — Kamu ngechat %num1 kali, dia baru balas %num2 kali. Totalnya %total harapan kosong.",
+        "%total — Harapanmu bertambah dari waktu ke waktu. Tapi ujung-ujungnya tetap ngenes.",
+        "%total — Dari sekian banyak usaha, jawaban dia cuma ‘kita temenan aja ya’.",
+        "%total — Masalahmu tambah parah, hati tambah sakit. Totalnya %total rasa sesal.",
+        "%total — Janji manis ditambah janji palsu. Totalnya %total kebohongan.",
+        "%total — Kamu nunggu jawaban dari dia, ternyata dia lagi sibuk chat orang lain.",
+        "%total — Kamu kasih dia semua, tapi jawabannya cuma ‘aku sayang kamu sebagai sahabat.’",
+        "%total — Usahamu bertambah, tapi perasaannya malah berkurang.",
+        "%total — Kamu buat kenangan manis, eh dia malah hapus kamu dari kontak.",
+        "%total — Kamu nunggu dia kembali, padahal dia udah move on duluan.",
+        "%total — Dari %num1 harapan, tinggal %num2 alasan untuk menangis. Hasilnya %total rasa sakit.",
+        "%total — Kamu hilang %num1 rasa percaya, lalu %num2 rasa pedih. Sekarang hanya %total hati yang tersisa.",
+        "%total — Dulu janji mau selalu ada, sekarang malah pergi tanpa pamit.",
+        "%total — Dari %num1 hari bersamamu, dia tinggalkan kamu di hari %num2.",
+        "%total — Dari %num1 mimpi indah, kini tinggal %num2 alasan untuk baper. Dan akhirnya %total penyesalan.",
+        "%total — Mantan dulu bilang ‘kita cocok’, sekarang malah nikah sama orang lain.",
+        "%total — Dari %num1 pesan terkirim, cuma %num2 dibalas. Sisanya %total harapan sia-sia.",
+        "%total — Kamu ngepost story, tapi viewersnya %num2 orang. Totalnya %total penonton yang peduli.",
+        "%total — %num1 hari kamu coba deketin dia, %num2 kali kamu chat duluan. Totalnya %total usaha sia-sia.",
+        "%total — %num1 harapan, %num2 doa. Totalnya %total rasa yang nggak dijawab.",
+        "%total — %num1 kata sayang, %num2 janji manis. Akhirnya cuma %total kenangan yang tersisa.",
+        "%total — %num1 kali kamu inget dia, %num2 kali kamu nangis sendiri. Totalnya %total rasa kesedihan.",
+        "%total — %num1 hari kamu berharap, %num2 hari kamu sadar kamu cuma dijadiin pelarian.",
+        "%total — %num1 kali kamu baik, %num2 kali kamu dimarahin. Totalnya %total penyesalan.",
+        "%total — %num1 hari kamu percaya, %num2 hari kamu diselingkuhi.",
+        "%total — %num1 hari kamu setia, %num2 hari kamu dimadu.",
+        "%total — %num1 kali kamu percaya, %num2 kali kamu kecewa. Rata-rata %total keraguan.",
+        "%total — %num1 hari kamu sabar, %num2 hari kamu diremehkan. Rata-rata %total kekecewaan.",
+        "%total — %num1 hari kamu yakin, %num2 hari kamu sadar kamu cuma dipake.",
+        "%total — %num1 kali kamu chat, %num2 kali kamu dibalas. Totalnya %total harapan kosong.",
+        "%total — Like foto mantan, komentarnya cuma emoji ❤️. Totalnya %total penyesalan.",
+        "%total — Kamu bagi %num1 perhatian ke %num2 orang. Setiap orang cuma dapat %total. Kamu capek, mereka cuek.",
+        "%total — %num1 harapan dibagi ke %num2 hari. Hasilnya cuma %total semangat per hari.",
+        "%total — %num1 rasa sayang dibagi ke %num2 cowok/cowok lain. Masing-masing dapet %total.",
+        "%total — Cintamu terbagi ke %num2 hal yang nggak penting. Sisanya cuma %total kekecewaan.",
+        "%total — Kamu kasih %num1 peluang, tapi hasilnya cuma %num2 kekecewaan. Rata-rata %total rasa sakit.",
+        "%total — Dari %num1 kenangan manis, tinggal %num2 yang tersisa. Dan akhirnya tinggal %total harapan yang sia-sia.",
+        "%total — Kamu ngepost %num1 story, viewersnya %num2 orang. Totalnya %total penonton yang peduli.",
+        "%total — Kamu chat %num1 orang, tapi balasannya cuma %num2. Totalnya %total harapan sia-sia.",
+        "%total — %num1 hari kamu coba deketin dia, %num2 kali kamu chat duluan. Totalnya %total usaha sia-sia.",
+        "%total — %num1 harapan, %num2 doa. Totalnya %total rasa yang nggak dijawab.",
+        "%total — %num1 kata sayang, %num2 janji manis. Akhirnya cuma %total kenangan yang tersisa.",
+        "%total — %num1 kali kamu inget dia, %num2 kali kamu nangis sendiri. Totalnya %total rasa kesedihan.",
+        "%total — %num1 hari kamu berharap, %num2 hari kamu sadar kamu cuma dijadiin pelarian.",
+        "%total — %num1 kali kamu baik, %num2 kali kamu dimarahin. Totalnya %total penyesalan.",
+        "%total — %num1 hari kamu percaya, %num2 hari kamu diselingkuhi.",
+        "%total — %num1 hari kamu setia, %num2 hari kamu dimadu.",
+        "%total — %num1 kali kamu percaya, %num2 kali kamu kecewa. Rata-rata %total keraguan.",
+        "%total — %num1 hari kamu sabar, %num2 hari kamu diremehkan. Rata-rata %total kekecewaan.",
+        "%total — %num1 hari kamu yakin, %num2 hari kamu sadar kamu cuma dipake.",
+        "%total — Kamu chat %num1 kali, dia balas %num2 kali. Totalnya %total harapan kosong.",
+        "%total — Like foto mantan, komentarnya cuma emoji ❤️. Totalnya %total penyesalan.",
+        "%total — %num1 hari kamu coba deketin dia, %num2 kali kamu chat duluan. Totalnya %total usaha sia-sia.",
+        "%total — %num1 harapan, %num2 doa. Totalnya %total rasa yang nggak dijawab.",
+        "%total — %num1 kata sayang, %num2 janji manis. Akhirnya cuma %total kenangan yang tersisa.",
+        "%total — %num1 kali kamu inget dia, %num2 kali kamu nangis sendiri. Totalnya %total rasa kesedihan.",
+        "%total — %num1 hari kamu berharap, %num2 hari kamu sadar kamu cuma dijadiin pelarian.",
+        "%total — %num1 kali kamu baik, %num2 kali kamu dimarahin. Totalnya %total penyesalan.",
+        "%total — %num1 hari kamu percaya, %num2 hari kamu diselingkuhi.",
+        "%total — %num1 hari kamu setia, %num2 hari kamu dimadu.",
+        "%total — %num1 kali kamu percaya, %num2 kali kamu kecewa. Rata-rata %total keraguan.",
+        "%total — %num1 hari kamu sabar, %num2 hari kamu diremehkan. Rata-rata %total kekecewaan.",
+        "%total — %num1 hari kamu yakin, %num2 hari kamu sadar kamu cuma dipake.",
+        "%total — Kamu ngechat %num1 kali, dia baru balas %num2 kali. Totalnya %total harapan kosong.",
+        "%total — Harapan bertambah dari waktu ke waktu. Tapi ujung-ujungnya tetap ngenes.",
+        "%total — Dari sekian banyak usaha, jawaban dia cuma ‘kita temenan aja ya’.",
+        "%total — Masalahmu tambah parah, hati tambah sakit. Totalnya %total rasa sesal.",
+        "%total — Janji manis ditambah janji palsu. Totalnya %total kebohongan.",
+        "%total — Kamu nunggu jawaban dari dia, ternyata dia lagi sibuk chat orang lain.",
+        "%total — Kamu kasih dia semua, tapi jawabannya cuma ‘aku sayang kamu sebagai sahabat.’",
+        "%total — Usahamu bertambah, tapi perasaannya malah berkurang.",
+        "%total — Kamu buat kenangan manis, eh dia malah hapus kamu dari kontak.",
+        "%total — Kamu nunggu dia kembali, padahal dia udah move on duluan.",
+        "%total — Dari %num1 harapan, tinggal %num2 alasan untuk menangis. Hasilnya %total rasa sakit.",
+        "%total — Kamu hilang %num1 rasa percaya, lalu %num2 rasa pedih. Sekarang hanya %total hati yang tersisa.",
+        "%total — Dulu janji mau selalu ada, sekarang malah pergi tanpa pamit.",
+        "%total — Dari %num1 hari bersamamu, dia tinggalkan kamu di hari %num2.",
+        "%total — Dari %num1 mimpi indah, kini tinggal %num2 alasan untuk baper. Dan akhirnya %total penyesalan.",
+        "%total — Mantan dulu bilang ‘kita cocok’, sekarang malah nikah sama orang lain.",
+        "%total — Dari %num1 pesan terkirim, cuma %num2 dibalas. Sisanya %total harapan sia-sia.",
+        "%total — Kamu ngepost %num1 story, viewersnya %num2 orang. Totalnya %total penonton yang peduli.",
+        "%total — %num1 hari kamu coba deketin dia, %num2 kali kamu chat duluan. Totalnya %total usaha sia-sia.",
+        "%total — %num1 harapan, %num2 doa. Totalnya %total rasa yang nggak dijawab.",
+        "%total — %num1 kata sayang, %num2 janji manis. Akhirnya cuma %total kenangan yang tersisa.",
+        "%total — %num1 kali kamu inget dia, %num2 kali kamu nangis sendiri. Totalnya %total rasa kesedihan.",
+        "%total — %num1 hari kamu berharap, %num2 hari kamu sadar kamu cuma dijadiin pelarian.",
+        "%total — %num1 kali kamu baik, %num2 kali kamu dimarahin. Totalnya %total penyesalan.",
+        "%total — %num1 hari kamu percaya, %num2 hari kamu diselingkuhi.",
+        "%total — %num1 hari kamu setia, %num2 hari kamu dimadu.",
+        "%total — %num1 kali kamu percaya, %num2 kali kamu kecewa. Rata-rata %total keraguan.",
+        "%total — %num1 hari kamu sabar, %num2 hari kamu diremehkan. Rata-rata %total kekecewaan.",
+        "%total — %num1 hari kamu yakin, %num2 hari kamu sadar kamu cuma dipake.",
+        "%total — Kamu ngechat %num1 kali, dia balas %num2 kali. Totalnya %total harapan kosong.",
+        "%total — Like foto mantan, komentarnya cuma emoji ❤️. Totalnya %total penyesalan.",
+        "%total — %num1 hari kamu coba deketin dia, %num2 kali kamu chat duluan. Totalnya %total usaha sia-sia.",
+        "%total — %num1 harapan, %num2 doa. Totalnya %total rasa yang nggak dijawab.",
+        "%total — %num1 kata sayang, %num2 janji manis. Akhirnya cuma %total kenangan yang tersisa.",
+        "%total — %num1 kali kamu inget dia, %num2 kali kamu nangis sendiri. Totalnya %total rasa kesedihan.",
+        "%total — %num1 hari kamu berharap, %num2 hari kamu sadar kamu cuma dijadiin pelarian.",
+        "%total — %num1 kali kamu baik, %num2 kali kamu dimarahin. Totalnya %total penyesalan.",
+        "%total — %num1 hari kamu percaya, %num2 hari kamu diselingkuhi.",
+        "%total — %num1 hari kamu setia, %num2 hari kamu dimadu.",
+        "%total — %num1 kali kamu percaya, %num2 kali kamu kecewa. Rata-rata %total keraguan.",
+        "%total — %num1 hari kamu sabar, %num2 hari kamu diremehkan. Rata-rata %total kekecewaan.",
+        "%total — %num1 hari kamu yakin, %num2 hari kamu sadar kamu cuma dipake.",
+        "%total — Kamu ngechat %num1 kali, dia balas %num2 kali. Totalnya %total harapan kosong.",
+        "%total — Like foto mantan, komentarnya cuma emoji ❤️. Totalnya %total penyesalan.",
+        "%total — %num1 hari kamu coba deketin dia, %num2 kali kamu chat duluan. Totalnya %total usaha sia-sia.",
+        "%total — %num1 harapan, %num2 doa. Totalnya %total rasa yang nggak dijawab.",
+        "%total — %num1 kata sayang, %num2 janji manis. Akhirnya cuma %total kenangan yang tersisa.",
+        "%total — %num1 kali kamu inget dia, %num2 kali kamu nangis sendiri. Totalnya %total rasa kesedihan.",
+        "%total — %num1 hari kamu berharap, %num2 hari kamu sadar kamu cuma dijadiin pelarian.",
+        "%total — %num1 kali kamu baik, %num2 kali kamu dimarahin. Totalnya %total penyesalan.",
+        "%total — %num1 hari kamu percaya, %num2 hari kamu diselingkuhi.",
+        "%total — %num1 hari kamu setia, %num2 hari kamu dimadu.",
+        "%total — %num1 kali kamu percaya, %num2 kali kamu kecewa. Rata-rata %total keraguan.",
+        "%total — %num1 hari kamu sabar, %num2 hari kamu diremehkan. Rata-rata %total kekecewaan.",
+        "%total — %num1 hari kamu yakin, %num2 hari kamu sadar kamu cuma dipake."
+      ],
+      '-': [],
+      '*': [],
+      '/': []
+    };
+
+    // Isi otomatis untuk operator -, *, /
+    for (let i = 0; i < 25; i++) {
+      stories["-"].push("%total — " + stories["+"][i]);
+      stories["*"].push("%total — " + stories["+"][i]);
+      stories["/"].push("%total — " + stories["+"][i]);
+    }
+
+    function calculate() {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+      const operator = document.getElementById("operator").value;
+      const resultTitle = document.getElementById("result-title");
+      const resultDiv = document.getElementById("result");
+
+      if (isNaN(num1) || isNaN(num2)) {
+        alert("Silakan masukkan angka yang valid.");
+        return;
+      }
+
+      let result;
+
+      switch (operator) {
+        case "+":
+          result = num1 + num2;
+          break;
+        case "-":
+          result = num1 - num2;
+          break;
+        case "*":
+          result = num1 * num2;
+          break;
+        case "/":
+          if (num2 === 0) {
+            alert("Tidak bisa membagi dengan nol!");
+            return;
+          }
+          result = num1 / num2;
+          break;
+        default:
+          alert("Operator tidak dikenali");
+          return;
+      }
+
+      const storyList = stories[operator];
+      const randomIndex = Math.floor(Math.random() * storyList.length);
+      const story = storyList[randomIndex]
+        .replace("%num1", num1)
+        .replace("%num2", num2)
+        .replace("%total", result);
+
+      resultTitle.textContent = `Hasil: ${result}`;
+      animateText(resultDiv, story, 40);
+    }
+
+    function animateText(element, text, speed) {
+      element.textContent = "";
+      let i = 0;
+      const typing = setInterval(() => {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(typing);
+        }
+      }, speed);
+    }
+  </script>
 </body>
-      </html>
+</html>
